@@ -43,85 +43,33 @@ public class PjListFragment extends Fragment {
         personajes = new ArrayList<PjData>();
 
         personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
-
+                R.drawable.mario, // ID del recurso drawable
+                "Mario",
+                "Se trata de un intrépido fontanero italiano, conocido por su valentía, optimismo y su habilidad para enfrentar cualquier desafío en su camino.",
+                "Salto potenciado – Mario puede realizar un salto más alto y fuerte, lo que le permite derrotar enemigos, alcanzar plataformas lejanas o activar bloques especiales"
         ));
+
         personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
+                R.drawable.luigi,
+                "Luigi",
+                "El hermano menor de Mario. Aunque es tímido, demuestra gran coraje al enfrentarse a fantasmas y otros desafíos.",
+                "Súper salto – Luigi puede saltar más alto que Mario."
         ));
+
         personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
-
+                R.drawable.peach,
+                "Peach",
+                "La Princesa del Reino Champiñón. Aunque suele ser rescatada, demuestra ser valiente y poderosa en algunas aventuras.",
+                "Flotación – Peach puede flotar en el aire por unos segundos tras un salto."
         ));
+
         personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
+                R.drawable.toad,
+                "Toad",
+                "Un fiel habitante del Reino Champiñón, conocido por su rapidez y lealtad a la Princesa Peach.",
+                "Velocidad extrema – Toad puede correr más rápido que cualquier otro personaje."
         ));
-        personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
 
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 1",
-                "descripcion prueba 1"
-
-        ));
-        personajes.add(new PjData(
-                "nombre prueba 2",
-                "descripcion prueba 2"
-
-        ));
     }
 
 //    @Override

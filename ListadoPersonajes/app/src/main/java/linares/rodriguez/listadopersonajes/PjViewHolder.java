@@ -18,6 +18,7 @@ public class PjViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void bind (PjData pj){
+        binding.image.setImageResource(pj.getImage());
         binding.pjName.setText(pj.getName());
 
         binding.executePendingBindings();

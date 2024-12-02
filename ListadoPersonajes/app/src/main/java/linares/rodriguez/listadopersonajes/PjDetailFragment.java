@@ -1,5 +1,6 @@
 package linares.rodriguez.listadopersonajes;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,15 +32,19 @@ public class PjDetailFragment extends Fragment {
 
 
         if(getArguments() != null){
-            String image = getArguments().getString("image");
+            int image = getArguments().getInt("image");
             String name = getArguments().getString("name");
             String description = getArguments().getString("description");
             String skill = getArguments().getString("skill");
 
-
+            binding.pjImage.setImageResource(image);
             binding.pjName.setText(name);
             binding.pjDescription.setText(description);
-            binding.skill.setText(skill);
+
+            System.out.println("name: " + name);
+            System.out.println("desc: " + description);
+            binding.pjSkill.setText(skill);
+            System.out.println("skill: " + skill);
         }
     }
 //    @Override

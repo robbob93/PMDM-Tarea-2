@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         bundle.putString("name", pj.getName()); // Pasa el nombre del juego
 
 
-        bundle.putString("image", pj.getImage()); // Pasa la imagen del juego
+        bundle.putInt("image", pj.getImage()); // Pasa la imagen del juego
         bundle.putString("description", pj.getDescription()); // Pasa la descripción o más datos que necesites
-
+        bundle.putString("skill", pj.getSkill()); // Pasa la descripción o más datos que necesites
         Navigation.findNavController(view).navigate(R.id.pjDetailFragment, bundle);
     }
 

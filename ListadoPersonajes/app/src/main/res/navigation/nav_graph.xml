@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/mainFragment"> <!-- Cambia esto al fragmento inicial de tu app -->
+
+    <!-- Definición del MainFragment -->
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="linares.rodriguez.listadopersonajes.PjListFragment"
+        android:label="Main Fragment" >
+
+        <!-- Agrega aquí las acciones y destinos que se pueden realizar desde el MainFragment si es necesario -->
+
+    </fragment>
+
+    <!-- Definición del GameDetailFragment -->
+
+    <fragment
+        android:id="@+id/pjDetailFragment"
+        android:name="linares.rodriguez.listadopersonajes.PjDetailFragment"
+        android:label="Personaje Detail Fragment" />
+</navigation>

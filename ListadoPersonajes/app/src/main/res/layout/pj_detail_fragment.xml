@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:text="Description"
                 style="@style/Theme.ListadoPersonajes.texts"
-                >
+                android:layout_margin="10dp">
 
             </TextView>
 
@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="Skill"
                 style="@style/Theme.ListadoPersonajes.texts"
-                >
+                android:layout_margin="10dp">
 
             </TextView>
 

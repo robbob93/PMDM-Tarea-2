@@ -1,16 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ListadoPersonajes" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.ListadoPersonajes" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorDarkPrimary</item>
         <item name="android:textSize">15dp</item>
-
+        <item name="android:windowIsTranslucent">true</item>
         <!-- SplashScreen cofiguration-->
-        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_pj_round</item>
-        <item name="android:windowSplashScreenAnimationDuration">3000</item>
-        <item name="android:windowSplashScreenIconBackgroundColor">@color/colorPrimary</item>
-        <item name="android:windowSplashScreenBackground">@color/colorPrimary</item>
+<!--        <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_pj_round</item>-->
+<!--        <item name="android:windowSplashScreenAnimationDuration">3000</item>-->
+<!--        <item name="android:windowSplashScreenIconBackgroundColor">@color/colorPrimary</item>-->
+<!--        <item name="android:windowSplashScreenBackground">@color/colorPrimary</item>-->
     </style>
 
     <style name="Theme.ListadoPersonajes.texts" parent="Base.Theme.ListadoPersonajes">

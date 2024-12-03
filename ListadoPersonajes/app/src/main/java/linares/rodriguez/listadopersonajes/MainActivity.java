@@ -10,6 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
+import androidx.core.splashscreen.SplashScreen;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
@@ -41,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
+
 
         ActivityMainBinding binding  = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

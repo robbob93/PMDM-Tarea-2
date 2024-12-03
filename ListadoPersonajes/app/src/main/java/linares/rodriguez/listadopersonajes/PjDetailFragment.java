@@ -52,7 +52,6 @@ public class PjDetailFragment extends Fragment {
                 ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.details_of) + name);
             }
 
-            //Toast.makeText(getContext(),, Toast.LENGTH_SHORT).show();
             Toast.makeText(getContext(),getString(R.string.choosed_pj) + name,Toast.LENGTH_LONG).show();
         }
     }

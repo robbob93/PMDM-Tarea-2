@@ -8,13 +8,14 @@
 
         <!-- SplashScreen cofiguration-->
         <item name="android:windowSplashScreenAnimatedIcon">@mipmap/ic_launcher_pj_round</item>
-        <item name="android:windowSplashScreenAnimationDuration">1000</item>
+        <item name="android:windowSplashScreenAnimationDuration">3000</item>
         <item name="android:windowSplashScreenIconBackgroundColor">@color/colorPrimary</item>
         <item name="android:windowSplashScreenBackground">@color/colorPrimary</item>
-
-
-
     </style>
 
-    <style name="Theme.ListadoPersonajes" parent="Base.Theme.ListadoPersonajes" />
+    <style name="Theme.ListadoPersonajes.texts" parent="Base.Theme.ListadoPersonajes">
+        <item name="android:textSize">20dp</item>
+        <item name="android:justificationMode">inter_word</item>
+
+    </style>
 </resources>

@@ -1,9 +1,13 @@
 package linares.rodriguez.listadopersonajes;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -47,6 +51,10 @@ public class MainActivity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController);
 
+        if (toolbar != null){
+            toolbar.setTitle("Titulo");
+            toolbar.setSubtitle("Subtitulo");
+        }
     }
 
 
@@ -64,5 +72,28 @@ public class MainActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         // Utiliza el método navigateUp del NavController
         return navController.navigateUp() || super.onSupportNavigateUp();
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_about) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Acerca de...")
+                    .setMessage("Aplicación desarrollada por Roberto Linares Rodríguez.\n Versión 1.0.")
+                    .setPositiveButton("Cerrar", null)
+                    .show();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

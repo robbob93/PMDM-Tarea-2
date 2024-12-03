@@ -25,6 +25,9 @@ import android.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,10 +54,11 @@ public class MainActivity extends AppCompatActivity {
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController);
 
-        if (toolbar != null){
-            toolbar.setTitle("Titulo");
-            toolbar.setSubtitle("Subtitulo");
-        }
+//        if (toolbar != null){
+//            toolbar.setTitle("Titulo");
+//            toolbar.setSubtitle("Subtitulo");
+//        }
+        simpleSnackbar(findViewById(R.id.nav_host_fragment));
     }
 
 
@@ -74,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         return navController.navigateUp() || super.onSupportNavigateUp();
     }
 
+    public void simpleSnackbar(View view){
+        Snackbar.make(view, R.string.welcome_to, Snackbar.LENGTH_SHORT) .show(); }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -87,9 +93,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_about) {
             new AlertDialog.Builder(this)
-                    .setTitle("Acerca de...")
-                    .setMessage("Aplicación desarrollada por Roberto Linares Rodríguez.\n Versión 1.0.")
-                    .setPositiveButton("Cerrar", null)
+                    .setTitle(R.string.about_label)
+                    .setMessage(R.string.dialog_message_about)
+                    .setPositiveButton(R.string.close_button_text, null)
                     .show();
             return true;
         }

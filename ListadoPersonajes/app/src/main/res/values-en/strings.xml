@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Character List</string>
+    <string name="description_mario">He is a daring Italian plumber, known for his bravery, optimism, and ability to face any challenge on his path.</string>
+    <string name="skill_mario">Enhanced jump – Mario can perform a higher and stronger jump, allowing him to defeat enemies, reach distant platforms, or activate special blocks.</string>
+    <string name="description_luigi">Mario\'s younger brother. Although shy, he shows great courage when facing ghosts and other challenges.</string>
+    <string name="skill_luigi">Super jump – Luigi can jump higher than Mario.</string>
+    <string name="desc_peach">The Princess of the Mushroom Kingdom. While often rescued, she proves to be brave and powerful in some adventures.</string>
+    <string name="skill_peach">Float – Peach can hover in the air for a few seconds after jumping.</string>
+    <string name="desc_toad">A loyal inhabitant of the Mushroom Kingdom, known for his speed and loyalty to Princess Peach.</string>
+    <string name="skill_toad">Extreme speed – Toad can run faster than any other character.</string>
+    <string name="details_of">"Details of "</string>
+    <string name="skill_label">Skill</string>
+    <string name="about_label">About...</string>
+    <string name="dialog_message_about">Application developed by Roberto Linares Rodríguez.\n Version 1.0.</string>
+    <string name="close_button_text">Close</string>
+    <string name="pj_lis_label">Character List</string>
+    <string name="welcome_to">Welcome to the world of Mario</string>
+    <string name="choosed_pj">"The character selected is "</string>
+
+</resources>

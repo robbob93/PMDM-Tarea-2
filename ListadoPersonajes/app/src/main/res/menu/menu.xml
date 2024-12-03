@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_about"
-        android:title="Acerca de..."
+        android:title="@string/about_label"
 
         ></item>
 </menu>

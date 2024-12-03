@@ -7,7 +7,7 @@
     <fragment
         android:id="@+id/mainFragment"
         android:name="linares.rodriguez.listadopersonajes.PjListFragment"
-        android:label="Lista personajes" >
+        android:label="@string/pj_lis_label" >
 
         <!-- Agrega aquí las acciones y destinos que se pueden realizar desde el MainFragment si es necesario -->
 

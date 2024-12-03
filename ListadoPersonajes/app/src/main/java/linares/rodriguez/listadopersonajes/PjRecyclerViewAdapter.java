@@ -47,7 +47,6 @@ public class PjRecyclerViewAdapter extends RecyclerView.Adapter<PjViewHolder> {
 
     private void itemClicked(PjData currentPj, View view){
         ((MainActivity) context).pjClicked(currentPj, view);
-        System.out.println("item clicado: " + currentPj.getName());
     }
 
 }

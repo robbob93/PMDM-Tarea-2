@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,16 +48,12 @@ public class PjDetailFragment extends Fragment {
             System.out.println("skill: " + skill);
 
             if (getActivity() != null) {
-                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Detalles de " + name);
+                // Cambia el título del ActionBar
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.details_of) + name);
             }
 
-
+            //Toast.makeText(getContext(),, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(),getString(R.string.choosed_pj) + name,Toast.LENGTH_LONG).show();
         }
-    }
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Cambia el título del ActionBar
-
     }
 }

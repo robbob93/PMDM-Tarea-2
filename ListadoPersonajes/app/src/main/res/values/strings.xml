@@ -1,3 +1,19 @@
 <resources>
-    <string name="app_name">Listado Personajes</string>
+    <string name="app_name">Lista de Personajes</string>
+    <string name="description_mario">Se trata de un intrépido fontanero italiano, conocido por su valentía, optimismo y su habilidad para enfrentar cualquier desafío en su camino.</string>
+    <string name="skill_mario">Salto potenciado – Mario puede realizar un salto más alto y fuerte, lo que le permite derrotar enemigos, alcanzar plataformas lejanas o activar bloques especiales</string>
+    <string name="description_luigi">El hermano menor de Mario. Aunque es tímido, demuestra gran coraje al enfrentarse a fantasmas y otros desafíos.</string>
+    <string name="skill_luigi">Súper salto – Luigi puede saltar más alto que Mario.</string>
+    <string name="desc_peach">La Princesa del Reino Champiñón. Aunque suele ser rescatada, demuestra ser valiente y poderosa en algunas aventuras.</string>
+    <string name="skill_peach">Flotación – Peach puede flotar en el aire por unos segundos tras un salto.</string>
+    <string name="desc_toad">Un fiel habitante del Reino Champiñón, conocido por su rapidez y lealtad a la Princesa Peach.</string>
+    <string name="skill_toad">Velocidad extrema – Toad puede correr más rápido que cualquier otro personaje.</string>
+    <string name="details_of">"Detalles de "</string>
+    <string name="skill_label">Habilidad</string>
+    <string name="about_label">Acerca de...</string>
+    <string name="dialog_message_about">Aplicación desarrollada por Roberto Linares Rodríguez.\n Versión 1.0.</string>
+    <string name="close_button_text">Cerrar</string>
+    <string name="pj_lis_label">Lista personajes</string>
+    <string name="welcome_to">Bienvenidos al mundo de Mario</string>
+    <string name="choosed_pj">"Se ha seleccionado el personaje "</string>
 </resources>

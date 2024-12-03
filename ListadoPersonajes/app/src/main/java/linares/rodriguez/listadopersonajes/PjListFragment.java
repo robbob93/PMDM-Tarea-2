@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -45,29 +44,29 @@ public class PjListFragment extends Fragment {
         personajes.add(new PjData(
                 R.drawable.mario, // ID del recurso drawable
                 "Mario",
-                "Se trata de un intrépido fontanero italiano, conocido por su valentía, optimismo y su habilidad para enfrentar cualquier desafío en su camino.",
-                "Salto potenciado – Mario puede realizar un salto más alto y fuerte, lo que le permite derrotar enemigos, alcanzar plataformas lejanas o activar bloques especiales"
+                getString(R.string.description_mario),
+                getString(R.string.skill_mario)
         ));
 
         personajes.add(new PjData(
                 R.drawable.luigi,
                 "Luigi",
-                "El hermano menor de Mario. Aunque es tímido, demuestra gran coraje al enfrentarse a fantasmas y otros desafíos.",
-                "Súper salto – Luigi puede saltar más alto que Mario."
+                getString(R.string.description_luigi),
+                getString(R.string.skill_luigi)
         ));
 
         personajes.add(new PjData(
                 R.drawable.peach,
                 "Peach",
-                "La Princesa del Reino Champiñón. Aunque suele ser rescatada, demuestra ser valiente y poderosa en algunas aventuras.",
-                "Flotación – Peach puede flotar en el aire por unos segundos tras un salto."
+                getString(R.string.desc_peach),
+                getString(R.string.skill_peach)
         ));
 
         personajes.add(new PjData(
                 R.drawable.toad,
                 "Toad",
-                "Un fiel habitante del Reino Champiñón, conocido por su rapidez y lealtad a la Princesa Peach.",
-                "Velocidad extrema – Toad puede correr más rápido que cualquier otro personaje."
+                getString(R.string.desc_toad),
+                getString(R.string.skill_toad)
         ));
 
     }

@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.os.Bundle;
+import android.widget.Toolbar;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -33,14 +35,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        //EdgeToEdge.enable(this);
 
         ActivityMainBinding binding  = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        //NavigationUI.setupActionBarWithNavController(this, navController);
+        NavigationUI.setupActionBarWithNavController(this, navController);
 
     }
 
@@ -49,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
         // Crear un Bundle para pasar los datos al GameDetailFragment
         Bundle bundle = new Bundle();
         bundle.putString("name", pj.getName()); // Pasa el nombre del juego
-
-
         bundle.putInt("image", pj.getImage()); // Pasa la imagen del juego
         bundle.putString("description", pj.getDescription()); // Pasa la descripción o más datos que necesites
         bundle.putString("skill", pj.getSkill()); // Pasa la descripción o más datos que necesites

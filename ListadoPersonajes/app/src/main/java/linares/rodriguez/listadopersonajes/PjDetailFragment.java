@@ -45,14 +45,18 @@ public class PjDetailFragment extends Fragment {
             System.out.println("desc: " + description);
             binding.pjSkill.setText(skill);
             System.out.println("skill: " + skill);
+
+            if (getActivity() != null) {
+                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Detalles de " + name);
+            }
+
+
         }
     }
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Cambia el título del ActionBar
-//        if (getActivity() != null) {
-//            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("R.string.detalles_del_juego");
-//        }
-//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Cambia el título del ActionBar
+
+    }
 }

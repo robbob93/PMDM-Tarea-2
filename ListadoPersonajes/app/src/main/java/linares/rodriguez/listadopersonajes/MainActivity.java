@@ -7,37 +7,26 @@ import android.view.MenuItem;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.splashscreen.SplashScreen;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import android.os.Bundle;
-import android.widget.Toolbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 import linares.rodriguez.listadopersonajes.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    private ActionBarDrawerToggle toggle;
+    private ActivityMainBinding binding;
     private NavController navController;
 
     @Override
@@ -46,23 +35,89 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
 
-
-        ActivityMainBinding binding  = ActivityMainBinding.inflate(getLayoutInflater());
+        binding  = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        // Obtener el NavController desde el NavHostFragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.nav_host_fragment);
+        navController = navHostFragment.getNavController();
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.mainFragment // Incluye el mainFragment como destino raíz
+        ).setOpenableLayout(binding.drawerLayout).build();
 
-        navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-//        if (toolbar != null){
-//            toolbar.setTitle("Titulo");
-//            toolbar.setSubtitle("Subtitulo");
-//        }
+
+
+        // Configurar menú toggle
+        configureToggleMenu();
+
+        // Configurar la navegación
+        configureNavigation();
+
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            if (destination.getId() == R.id.mainFragment) {
+                // En el mainFragment, muestra la hamburguesa
+                toggle.setDrawerIndicatorEnabled(true);
+            } else {
+                // En otros fragmentos, muestra la flecha atrás
+                toggle.setDrawerIndicatorEnabled(false);
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+        });
+        
         simpleSnackbar(findViewById(R.id.nav_host_fragment));
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
     }
+
+
+    private void configureNavigation() {
+        NavigationUI.setupWithNavController(binding.navView, navController);
+
+        // Manejar la selección de elementos del menú
+        binding.navView.setNavigationItemSelectedListener(menuItem -> {
+            if (menuItem.getItemId() == R.id.nav_home) {
+                navController.navigate(R.id.mainFragment); // Navegar al fragmento de inicio
+            } else if (menuItem.getItemId() == R.id.nav_settings) {
+                navController.navigate(R.id.settingsFragment);
+            }
+            binding.drawerLayout.closeDrawers(); // Cerrar el menú
+            return true;
+        });
+    }
+
+
+    private void configureToggleMenu() {
+        toggle = new ActionBarDrawerToggle(
+                this,
+                binding.drawerLayout,
+                R.string.open_drawer,
+                R.string.close_drawer
+        ) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                // Actualiza el estado del ícono cuando el menú se abre
+                toggle.syncState();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                // Actualiza el estado del ícono cuando el menú se cierra
+                toggle.syncState();
+            }
+        };
+
+        binding.drawerLayout.addDrawerListener(toggle);
+        toggle.syncState(); // Sincroniza el estado inicial
+    }
+
 
 
     public void pjClicked(PjData pj, View view) {
@@ -75,10 +130,33 @@ public class MainActivity extends AppCompatActivity {
         Navigation.findNavController(view).navigate(R.id.pjDetailFragment, bundle);
     }
 
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        // Utiliza el método navigateUp del NavController
+//        return navController.navigateUp() || super.onSupportNavigateUp();
+//    }
+
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+//
+//        if (navHostFragment != null) {
+//            NavController navController = NavHostFragment.findNavController(navHostFragment);
+//            return NavigationUI.navigateUp(navController, binding.drawerLayout) || super.onSupportNavigateUp();
+//        }
+//        return super.onSupportNavigateUp();
+//    }
+
     @Override
     public boolean onSupportNavigateUp() {
-        // Utiliza el método navigateUp del NavController
-        return navController.navigateUp() || super.onSupportNavigateUp();
+        // Si el DrawerLayout está abierto, ciérralo
+        if (binding.drawerLayout.isDrawerOpen(binding.navView)) {
+            binding.drawerLayout.closeDrawer(binding.navView);
+            return true; // Indica que el evento fue consumido
+        }
+
+        // De lo contrario, maneja la navegación estándar
+        return NavigationUI.navigateUp(navController, binding.drawerLayout) || super.onSupportNavigateUp();
     }
 
     public void simpleSnackbar(View view){

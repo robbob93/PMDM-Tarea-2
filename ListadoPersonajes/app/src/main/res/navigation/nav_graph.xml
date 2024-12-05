@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     app:startDestination="@id/mainFragment"> <!-- Cambia esto al fragmento inicial de tu app -->
 
     <!-- Definición del MainFragment -->
@@ -19,4 +20,9 @@
         android:id="@+id/pjDetailFragment"
         android:name="linares.rodriguez.listadopersonajes.PjDetailFragment"
         android:label="Personaje Detail Fragment" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="linares.rodriguez.listadopersonajes.settingsFragment"
+        android:label="fragment_settings2"
+        tools:layout="@layout/fragment_settings2" />
 </navigation>

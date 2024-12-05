@@ -16,4 +16,8 @@
     <string name="pj_lis_label">Lista personajes</string>
     <string name="welcome_to">Bienvenidos al mundo de Mario</string>
     <string name="choosed_pj">"Se ha seleccionado el personaje "</string>
+    <string name="open_drawer">Abrir menú</string>
+    <string name="close_drawer">Cerrar menú</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

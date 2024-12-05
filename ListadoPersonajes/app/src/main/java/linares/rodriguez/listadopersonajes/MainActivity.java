@@ -10,10 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.splashscreen.SplashScreen;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
@@ -21,21 +18,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.Toolbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 import linares.rodriguez.listadopersonajes.databinding.ActivityMainBinding;
@@ -90,17 +73,11 @@ public class MainActivity extends AppCompatActivity {
         binding.navView.setNavigationItemSelectedListener(menuItem -> {
             if (menuItem.getItemId() == R.id.nav_home) {
                 navController.navigate(R.id.mainFragment); // Navegar al fragmento de inicio
+            } else if (menuItem.getItemId() == R.id.nav_settings) {
+                navController.navigate(R.id.settingsFragment);
             }
             binding.drawerLayout.closeDrawers(); // Cerrar el menú
             return true;
-        });
-
-        // Maneja la opción de perfil del header del menú
-        ImageView profileImageView = binding.navView.getHeaderView(0).findViewById(R.id.header_image);
-
-        profileImageView.setOnClickListener(v -> {
-            navController.navigate(R.id.settingsFragment); // Navegar al fragmento de perfil
-            binding.drawerLayout.closeDrawers(); // Cerrar el menú
         });
     }
 
@@ -135,15 +112,27 @@ public class MainActivity extends AppCompatActivity {
 //        return navController.navigateUp() || super.onSupportNavigateUp();
 //    }
 
+//    @Override
+//    public boolean onSupportNavigateUp() {
+//        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
+//
+//        if (navHostFragment != null) {
+//            NavController navController = NavHostFragment.findNavController(navHostFragment);
+//            return NavigationUI.navigateUp(navController, binding.drawerLayout) || super.onSupportNavigateUp();
+//        }
+//        return super.onSupportNavigateUp();
+//    }
+
     @Override
     public boolean onSupportNavigateUp() {
-        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-
-        if (navHostFragment != null) {
-            NavController navController = NavHostFragment.findNavController(navHostFragment);
-            return NavigationUI.navigateUp(navController, binding.drawerLayout) || super.onSupportNavigateUp();
+        // Si el DrawerLayout está abierto, ciérralo
+        if (binding.drawerLayout.isDrawerOpen(binding.navView)) {
+            binding.drawerLayout.closeDrawer(binding.navView);
+            return true; // Indica que el evento fue consumido
         }
-        return super.onSupportNavigateUp();
+
+        // De lo contrario, maneja la navegación estándar
+        return NavigationUI.navigateUp(navController, binding.drawerLayout) || super.onSupportNavigateUp();
     }
 
     public void simpleSnackbar(View view){

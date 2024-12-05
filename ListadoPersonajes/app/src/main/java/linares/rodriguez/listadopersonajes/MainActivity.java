@@ -44,8 +44,12 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         NavHostFragment navHostFragment = (NavHostFragment) fragmentManager.findFragmentById(R.id.nav_host_fragment);
         navController = navHostFragment.getNavController();
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
-        NavigationUI.setupActionBarWithNavController(this, navController);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.mainFragment // Incluye el mainFragment como destino raíz
+        ).setOpenableLayout(binding.drawerLayout).build();
+
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
 
 
         // Configurar menú toggle
@@ -54,11 +58,17 @@ public class MainActivity extends AppCompatActivity {
         // Configurar la navegación
         configureNavigation();
 
-
-//        if (toolbar != null){
-//            toolbar.setTitle("Titulo");
-//            toolbar.setSubtitle("Subtitulo");
-//        }
+        navController.addOnDestinationChangedListener((controller, destination, arguments) -> {
+            if (destination.getId() == R.id.mainFragment) {
+                // En el mainFragment, muestra la hamburguesa
+                toggle.setDrawerIndicatorEnabled(true);
+            } else {
+                // En otros fragmentos, muestra la flecha atrás
+                toggle.setDrawerIndicatorEnabled(false);
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+        });
+        
         simpleSnackbar(findViewById(R.id.nav_host_fragment));
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -83,15 +93,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void configureToggleMenu() {
-        // Configurar el ActionBarDrawerToggle
         toggle = new ActionBarDrawerToggle(
                 this,
                 binding.drawerLayout,
                 R.string.open_drawer,
                 R.string.close_drawer
-        );
+        ) {
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                // Actualiza el estado del ícono cuando el menú se abre
+                toggle.syncState();
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                // Actualiza el estado del ícono cuando el menú se cierra
+                toggle.syncState();
+            }
+        };
+
         binding.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        toggle.syncState(); // Sincroniza el estado inicial
     }
 
 

@@ -1,8 +1,5 @@
 package linares.rodriguez.listadopersonajes;
 
-import android.view.View;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import linares.rodriguez.listadopersonajes.databinding.PjCardviewBinding;

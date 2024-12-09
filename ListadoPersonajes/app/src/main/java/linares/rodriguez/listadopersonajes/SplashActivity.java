@@ -21,8 +21,12 @@ public class SplashActivity extends AppCompatActivity {
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
-        }, SPLASH_TIME); // Duración de 3 segundos
+        }, SPLASH_TIME); // Duración
 
+
+        // En caso de quererse utilizar una pantalla splash no custom en función de la versión
+        // dado que se requiere una duración de al menos 2 segundos independientemente de la versión,
+        // se utiliza el código de arriba.
 //        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S){
 //            setContentView(R.layout.splash);
 //
@@ -31,7 +35,7 @@ public class SplashActivity extends AppCompatActivity {
 //                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
 //                startActivity(intent);
 //                finish();
-//            }, SPLASH_TIME); // Duración de 3 segundos
+//            }, SPLASH_TIME);
 //        }else{
 //            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
 //            startActivity(intent);

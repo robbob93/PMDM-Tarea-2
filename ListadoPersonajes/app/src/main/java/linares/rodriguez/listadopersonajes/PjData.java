@@ -13,13 +13,7 @@ public class PjData {
         this.description = description;
         this.skill = skill;
     }
-//    public PjData( String name, String description) {
-//        this.image = "image";
-//        this.name = name;
-//        this.description = description;
-//        this.skill = "habilidad";
-//
-//    }
+
 
     public int getImage() {
         return image;

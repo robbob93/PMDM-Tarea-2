@@ -70,12 +70,4 @@ public class PjListFragment extends Fragment {
         ));
 
     }
-
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        if (getActivity()!= null){
-//            ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(("Prueba"));
-//        }
-//    }
 }

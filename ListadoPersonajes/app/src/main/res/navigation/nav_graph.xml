@@ -15,9 +15,6 @@
         <action
             android:id="@+id/action_mainFragment_to_pjDetailFragment2"
             app:destination="@id/pjDetailFragment" />
-        <action
-            android:id="@+id/action_mainFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment" />
     </fragment>
 
     <!-- Definición del GameDetailFragment -->
@@ -30,13 +27,14 @@
             android:id="@+id/action_pjDetailFragment_to_mainFragment2"
             app:destination="@id/mainFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="linares.rodriguez.listadopersonajes.settingsFragment"
-        android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
+        android:name="linares.rodriguez.listadopersonajes.SettingsFragment"
+        android:label="@string/settingsFragmentLabel" >
         <action
             android:id="@+id/action_settingsFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+
 </navigation>

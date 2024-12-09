@@ -18,6 +18,16 @@
     <string name="choosed_pj">"Se ha seleccionado el personaje "</string>
     <string name="open_drawer">Abrir menú</string>
     <string name="close_drawer">Cerrar menú</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="settings">Preferencias</string>
+    <string name="home">Principal</string>
+    <string name="settingsFragmentLabel">Ajustes</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Preferencias</string>
+    <string name="language_label">Idioma</string>
+    <string name="language_change_summary">Alterna entre Castellano e inglés</string>
+
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
 </resources>

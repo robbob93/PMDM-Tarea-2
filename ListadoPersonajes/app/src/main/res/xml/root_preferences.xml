@@ -5,8 +5,8 @@
         <SwitchPreferenceCompat
             android:defaultValue="false"
             android:key="language_preference"
-            android:summary="Cambia entre Castellano e inglés"
-            android:title="Idioma" />
+            android:summary="@string/language_change_summary"
+            android:title="@string/language_label" />
 
 
     </PreferenceCategory>

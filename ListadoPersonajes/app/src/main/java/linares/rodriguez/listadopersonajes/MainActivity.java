@@ -1,5 +1,8 @@
 package linares.rodriguez.listadopersonajes;
 
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,8 +19,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.preference.PreferenceManager;
+
 import com.google.android.material.snackbar.Snackbar;
 
+
+import java.util.Locale;
 
 import linares.rodriguez.listadopersonajes.databinding.ActivityMainBinding;
 
@@ -32,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         //SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
         //EdgeToEdge.enable(this);
+
+        getPreferences();
+
 
         binding  = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -68,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
         });
         
         simpleSnackbar(findViewById(R.id.nav_host_fragment));
+
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -91,29 +103,19 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void configureToggleMenu() {
+        // Crear el ActionBarDrawerToggle sin anular métodos
         toggle = new ActionBarDrawerToggle(
                 this,
                 binding.drawerLayout,
                 R.string.open_drawer,
                 R.string.close_drawer
-        ) {
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-                // Actualiza el estado del ícono cuando el menú se abre
-                toggle.syncState();
-            }
+        );
 
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-                // Actualiza el estado del ícono cuando el menú se cierra
-                toggle.syncState();
-            }
-        };
-
+        // Agregar el listener al DrawerLayout
         binding.drawerLayout.addDrawerListener(toggle);
-        toggle.syncState(); // Sincroniza el estado inicial
+
+        // Sincronizar el estado inicial del toggle
+        toggle.syncState();
     }
 
 
@@ -128,22 +130,6 @@ public class MainActivity extends AppCompatActivity {
         Navigation.findNavController(view).navigate(R.id.pjDetailFragment, bundle);
     }
 
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        // Utiliza el método navigateUp del NavController
-//        return navController.navigateUp() || super.onSupportNavigateUp();
-//    }
-
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        Fragment navHostFragment = getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
-//
-//        if (navHostFragment != null) {
-//            NavController navController = NavHostFragment.findNavController(navHostFragment);
-//            return NavigationUI.navigateUp(navController, binding.drawerLayout) || super.onSupportNavigateUp();
-//        }
-//        return super.onSupportNavigateUp();
-//    }
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -180,5 +166,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void getPreferences(){
+        // Recuperar idioma guardado
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        System.out.println("Preferencias" + preferences.toString());
+        boolean isEnglish = preferences.getBoolean("language_preference", false);
+        setLocale(isEnglish ? "en" : "es");
+
+    }
+
+    private void setLocale(String languageCode) {
+        Locale locale = new Locale(languageCode);
+        Locale.setDefault(locale);
+        Resources resources = getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
 }

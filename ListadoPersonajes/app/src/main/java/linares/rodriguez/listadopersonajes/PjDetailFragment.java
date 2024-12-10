@@ -14,11 +14,23 @@ import androidx.fragment.app.Fragment;
 
 import linares.rodriguez.listadopersonajes.databinding.PjDetailFragmentBinding;
 
+
+/**
+ * Clase PjDetailFragment que muestra los detalles de un personaje seleccionado.
+ * Recibe datos a través de un Bundle y los utiliza para actualizar la interfaz de usuario.
+ */
 public class PjDetailFragment extends Fragment {
 
     private PjDetailFragmentBinding binding;
 
-
+    /**
+     * Método que infla el diseño del fragmento y devuelve la vista raíz.
+     *
+     * @param inflater  Inflador para expandir el diseño del fragmento.
+     * @param container Contenedor donde se colocará la vista del fragmento.
+     * @param savedInstanceState Estado previamente guardado del fragmento, si existe.
+     * @return La vista raíz inflada del fragmento.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,31 +39,38 @@ public class PjDetailFragment extends Fragment {
         return binding.getRoot();
     }
 
+
+    /**
+     * Método que se llama después de que la vista del fragmento ha sido creada.
+     * Configura los datos en la interfaz de usuario y ajusta el título del ActionBar.
+     *
+     * @param view La vista creada para este fragmento.
+     * @param savedInstanceState Estado previamente guardado del fragmento, si existe.
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        // Comprueba si hay argumentos pasados al fragmento
         if(getArguments() != null){
+            // Recupera los datos del personaje desde el Bundle
             int image = getArguments().getInt("image");
             String name = getArguments().getString("name");
             String description = getArguments().getString("description");
             String skill = getArguments().getString("skill");
 
+            // Actualiza la interfaz de usuario con los datos del personaje
             binding.pjImage.setImageResource(image);
             binding.pjName.setText(name);
             binding.pjDescription.setText(description);
-
-            System.out.println("name: " + name);
-            System.out.println("desc: " + description);
             binding.pjSkill.setText(skill);
-            System.out.println("skill: " + skill);
 
+            // Cambia el título del ActionBar para mostrar el nombre del personaje
             if (getActivity() != null) {
-                // Cambia el título del ActionBar
                 ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.details_of) + name);
             }
 
+            // Muestra un mensaje Toast indicando el personaje seleccionado
             Toast.makeText(getContext(),getString(R.string.choosed_pj) + name,Toast.LENGTH_LONG).show();
         }
     }

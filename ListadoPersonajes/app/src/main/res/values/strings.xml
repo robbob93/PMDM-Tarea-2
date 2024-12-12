@@ -11,7 +11,7 @@
     <string name="details_of">"Detalles de "</string>
     <string name="skill_label">Habilidad</string>
     <string name="about_label">Acerca de...</string>
-    <string name="dialog_message_about">Aplicación desarrollada por Roberto Linares Rodríguez.\n Versión 1.0.</string>
+    <string name="dialog_message_about">Aplicación desarrollada por Roberto Linares Rodríguez.\nVersión 1.0.</string>
     <string name="close_button_text">Cerrar</string>
     <string name="pj_lis_label">Lista personajes</string>
     <string name="welcome_to">Bienvenidos al mundo de Mario</string>

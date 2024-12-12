@@ -1,6 +1,5 @@
 package linares.rodriguez.listadopersonajes;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -71,7 +70,7 @@ public class PjDetailFragment extends Fragment {
             }
 
             // Muestra un mensaje Toast indicando el personaje seleccionado
-            Toast.makeText(getContext(),getString(R.string.choosed_pj) + name,Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(),getString(R.string.choosed_pj) + name,Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -64,7 +64,7 @@ public class PjListFragment extends Fragment {
      */
     private void loadPjs() {
 
-        personajes = new ArrayList<PjData>();
+        personajes = new ArrayList<>();
 
         personajes.add(new PjData(
                 R.drawable.mario, // ID del recurso drawable

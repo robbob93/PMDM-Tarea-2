@@ -6,4 +6,6 @@
     <color name="colorAccent">#FBD000</color>
     <color name="backgroundColor">#F2E3A5</color>
     <color name="toolbarTextColor">#E91E63</color>
+    <color name="subTitleDarkColor">#454545</color>
+    <color name="subTitleLigthColor">#DED7CC</color>
 </resources>

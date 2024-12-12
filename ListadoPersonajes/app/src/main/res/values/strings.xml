@@ -26,6 +26,7 @@
     <string name="language_label">Idioma</string>
     <string name="language_change_summary">Alterna entre Castellano e inglés</string>
     <string name="toad_image">Toad image</string>
+    <string name="character_details">Detalles del personaje</string>
 
 
     <!-- Messages Preferences -->

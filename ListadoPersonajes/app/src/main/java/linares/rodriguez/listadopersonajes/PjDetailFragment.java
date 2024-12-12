@@ -1,6 +1,9 @@
 package linares.rodriguez.listadopersonajes;
 
+
+
 import android.os.Bundle;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import linares.rodriguez.listadopersonajes.databinding.PjDetailFragmentBinding;
@@ -64,10 +66,12 @@ public class PjDetailFragment extends Fragment {
             binding.pjDescription.setText(description);
             binding.pjSkill.setText(skill);
 
-            // Cambia el título del ActionBar para mostrar el nombre del personaje
-            if (getActivity() != null) {
-                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.details_of) + name);
-            }
+//          // Cambia el título del ActionBar para mostrar el nombre del personaje
+            // Desactivado porque provocaba NullPointerException si se cambiaba de tema en el fragmento de detaller del personake
+            // al no haber cargado aún la toolbar
+//            if (getActivity() != null) {
+//                ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.details_of) + name);
+//            }
 
             // Muestra un mensaje Toast indicando el personaje seleccionado
             Toast.makeText(getContext(),getString(R.string.choosed_pj) + name,Toast.LENGTH_SHORT).show();

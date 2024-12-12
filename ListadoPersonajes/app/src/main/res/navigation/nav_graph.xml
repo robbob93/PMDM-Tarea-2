@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/pjDetailFragment"
         android:name="linares.rodriguez.listadopersonajes.PjDetailFragment"
-        android:label="Personaje Detail Fragment" >
+        android:label="@string/character_details" >
         <action
             android:id="@+id/action_pjDetailFragment_to_mainFragment2"
             app:destination="@id/mainFragment" />

@@ -16,6 +16,15 @@
     <style name="Theme.ListadoPersonajes.texts" parent="Base.Theme.ListadoPersonajes">
         <item name="android:textSize">20dp</item>
         <item name="android:justificationMode">inter_word</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+    <style name="Theme.ListadoPersonajes.subTitles" parent="Base.Theme.ListadoPersonajes">
+        <item name="android:textSize">30dp</item>
+        <item name="android:textColor">@color/subTitleLigthColor</item>
+
 
     </style>
+
 </resources>

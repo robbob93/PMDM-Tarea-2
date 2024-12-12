@@ -11,6 +11,7 @@
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:clickable="true"
+        android:contentDescription="@string/toad_image"
         android:focusable="true"
         android:src="@drawable/toad" />
 

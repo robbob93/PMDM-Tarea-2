@@ -25,6 +25,7 @@
     <string name="messages_header">Preferencias</string>
     <string name="language_label">Idioma</string>
     <string name="language_change_summary">Alterna entre Castellano e inglés</string>
+    <string name="toad_image">Toad image</string>
 
 
     <!-- Messages Preferences -->
